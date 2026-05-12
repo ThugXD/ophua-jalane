@@ -1,0 +1,1 @@
+ALTER TABLE public.profiles ADD COLUMN IF NOT EXISTS card_lang text NOT NULL DEFAULT 'pt';
