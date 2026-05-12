@@ -57,3 +57,4 @@ public/storage
 # Wrangler / Cloudflare
 .wrangler/
 .dev.vars
+jalane-reimagined/**/.git
