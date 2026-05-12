@@ -9,7 +9,7 @@ import {
   RefreshControl,
 } from 'react-native';
 import { useRouter } from 'expo-router';
-import { Plus, Search, Trash2 } from 'lucide-react-native';
+import { Plus, Search, Trash2, Camera } from 'lucide-react-native';
 import { useAuth } from '@/context/AuthContext';
 import { useTheme } from '@/context/ThemeContext';
 import { useLanguage } from '@/context/LanguageContext';
@@ -139,11 +139,41 @@ export default function ContactsScreen() {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: colors.background }}>
-      <Header
-        title={t('common.contacts')}
-        rightIcon={<Plus size={24} color={colors.primary} />}
-        onRightPress={() => router.push('/(app)/contacts/create')}
-      />
+      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 16, paddingVertical: 12 }}>
+        <Text style={{ color: colors.text, fontSize: 28, fontWeight: 'bold' }}>
+          {t('common.contacts')}
+        </Text>
+        <View style={{ flexDirection: 'row', gap: 12 }}>
+          <TouchableOpacity
+            onPress={() => router.push('/(app)/contacts/scanner')}
+            style={{
+              width: 44,
+              height: 44,
+              borderRadius: 22,
+              backgroundColor: colors.surface,
+              justifyContent: 'center',
+              alignItems: 'center',
+              borderWidth: 1,
+              borderColor: colors.border,
+            }}
+          >
+            <Camera size={20} color={colors.primary} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => router.push('/(app)/contacts/create')}
+            style={{
+              width: 44,
+              height: 44,
+              borderRadius: 22,
+              backgroundColor: colors.primary,
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
+            <Plus size={20} color="#FFFFFF" />
+          </TouchableOpacity>
+        </View>
+      </View>
 
       {contacts.length > 0 && (
         <View style={{ paddingHorizontal: 16, paddingVertical: 12 }}>
